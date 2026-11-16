@@ -1,0 +1,297 @@
+/* ==========================================================================
+   Custom Styles - Asoka (Tema Kalem & Abu-Abu / Modern Slate)
+   ========================================================================== */
+
+:root {
+    --primary-color: #475569;
+    --primary-dark: #334155;
+    --primary-light: #f1f5f9;
+    --secondary-color: #64748b;
+    --accent-color: #94a3b8;
+    --dark-color: #0f172a;
+    --sidebar-bg: #1e293b;
+    --sidebar-hover: #334155;
+    --sidebar-active: #475569;
+    --body-bg: #f8fafc;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--body-bg);
+    color: #334155;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 260px;
+    background: var(--sidebar-bg);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+#sidebar-wrapper .sidebar-brand {
+    padding: 1.5rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#sidebar-wrapper .nav-item {
+    margin: 4px 12px;
+}
+
+#sidebar-wrapper .nav-link {
+    color: #94a3b8;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.925rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+#sidebar-wrapper .nav-link:hover {
+    color: #fff;
+    background-color: var(--sidebar-hover);
+}
+
+#sidebar-wrapper .nav-link.active {
+    color: #fff;
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
+    box-shadow: 0 4px 12px rgba(51, 65, 85, 0.4);
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 1.25rem 1.25rem 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #64748b;
+}
+
+/* Navbar */
+.top-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+}
+
+/* Stat Cards */
+.stat-card {
+    border-radius: 14px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* POS Specific */
+.pos-product-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.pos-product-card:hover {
+    transform: translateY(-3px);
+    border-color: #64748b;
+    box-shadow: 0 8px 16px rgba(71, 85, 105, 0.15);
+}
+
+.pos-product-card .price-tag {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.cart-table th {
+    font-size: 0.825rem;
+    text-transform: uppercase;
+    color: #64748b;
+    border-bottom-width: 1px;
+}
+
+.cart-table td {
+    vertical-align: middle;
+}
+
+/* Quick Cash Buttons */
+.btn-quick-cash {
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-quick-cash:hover {
+    background-color: #e2e8f0;
+}
+
+/* Apriori Steps & Visuals */
+.apriori-step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #475569;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.rule-arrow {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 700;
+    border-radius: 6px;
+    margin: 0 0.5rem;
+}
+
+.insight-card {
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: var(--card-shadow);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.insight-card.bundling {
+    border-left-color: #f59e0b;
+}
+
+.insight-card.stok {
+    border-left-color: #0ea5e9;
+}
+
+/* ==========================================================================
+   Penggantian Warna Hijau ke Palet Kalem / Abu-Abu (Slate/Charcoal)
+   ========================================================================== */
+
+/* Buttons */
+.btn-success {
+    background: linear-gradient(135deg, #475569 0%, #334155 100%) !important;
+    border-color: #334155 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(51, 65, 85, 0.2);
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active {
+    background: #1e293b !important;
+    border-color: #0f172a !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.3);
+}
+
+.btn-outline-success {
+    color: #475569 !important;
+    border-color: #64748b !important;
+}
+
+.btn-outline-success:hover, .btn-outline-success:focus, .btn-outline-success:active {
+    background-color: #475569 !important;
+    border-color: #475569 !important;
+    color: #ffffff !important;
+}
+
+/* Text & Badges */
+.text-success {
+    color: #334155 !important;
+}
+
+.bg-success {
+    background-color: #475569 !important;
+    color: #ffffff !important;
+}
+
+.border-success {
+    border-color: #94a3b8 !important;
+}
+
+.badge-soft-success {
+    background-color: #f1f5f9 !important;
+    color: #334155 !important;
+    border: 1px solid #cbd5e1;
+}
+
+.badge-soft-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.badge-soft-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.badge-soft-info {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.badge-soft-primary {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+/* Alert success */
+.alert-success {
+    background-color: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    color: #334155 !important;
+}
+
+/* Nav Pills Active */
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background: linear-gradient(135deg, #475569 0%, #334155 100%) !important;
+    color: #ffffff !important;
+}

@@ -1,0 +1,54 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Asoka POS & Apriori CLI Runner / Artisan Compatibility
+ */
+
+$command = $argv[1] ?? 'help';
+
+if ($command === 'serve') {
+    $host = '127.0.0.1';
+    $port = 8000;
+
+    foreach ($argv as $arg) {
+        if (str_starts_with($arg, '--port=')) {
+            $port = (int)substr($arg, 7);
+        }
+        if (str_starts_with($arg, '--host=')) {
+            $host = substr($arg, 7);
+        }
+    }
+
+    echo "\n======================================================\n";
+    echo "  ASOKA - POS & APRIORI MBA\n";
+    echo "======================================================\n";
+    echo "  Server berjalan di: http://{$host}:{$port}\n";
+    echo "  Buka tautan di atas pada peramban (browser) Anda.\n";
+    echo "  Tekan Ctrl+C untuk menghentikan server.\n";
+    echo "======================================================\n\n";
+
+    if (PHP_OS_FAMILY === 'Windows') {
+        @exec("start http://{$host}:{$port}");
+    }
+
+    passthru(PHP_BINARY . " -S {$host}:{$port} -t " . escapeshellarg(__DIR__));
+    exit;
+}
+
+if ($command === 'migrate' || $command === 'db:seed' || $command === 'check') {
+    require_once __DIR__ . '/config/database.php';
+    echo "Memverifikasi database MySQL...\n";
+    try {
+        $db = Database::getConnection();
+        echo "Database terhubung dengan sukses!\n";
+    } catch (Exception $e) {
+        echo "Error database: " . $e->getMessage() . "\n";
+    }
+    exit;
+}
+
+echo "\nPerintah yang tersedia:\n";
+echo "  php artisan serve              -> Menjalankan development server di http://127.0.0.1:8000\n";
+echo "  php artisan serve --port=8080  -> Menjalankan di port khusus\n";
+echo "  php artisan check              -> Cek status koneksi database\n\n";
+
